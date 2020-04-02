@@ -3,6 +3,7 @@
 O projeto foi construido na versão 4 do Angular, com o auxilio do [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
 
 Escopo
+
 Foi criado um projeto Angular4, onde foram resolvidas as 3 questões da avaliação.
 
 Tecnologias

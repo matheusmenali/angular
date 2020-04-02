@@ -1,27 +1,17 @@
-# Bravi
+# Bravi - Projeto de Avaliação tecnica
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
+O projeto foi construido na versão 4 do Angular, com o auxilio do [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
 
-## Development server
+Escopo : Foi criado um projeto Angular4, onde foram resolvidas as 3 questões da avaliação.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Tecnologias : 
+Angular CLI 1.4.10
+Bootstrap 4.4
+Node.js 10.16.1
 
-## Code scaffolding
+Como instalar :
+Baixe ou clone este repositório usando git clone https://github.com/matheusmenali/angular.git;
+Dentro do diretório, instale as dependências usando npm install.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Como executar :
+Execute ng serve para executar a versão de desenvolvimento. Depois acesse http://localhost:4200/.

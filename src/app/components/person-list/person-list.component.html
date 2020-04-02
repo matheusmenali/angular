@@ -1,0 +1,61 @@
+
+  <form  [formGroup]="personForm"  (ngSubmit)="onSubmit()">
+
+    <p>      Persons    </p>
+
+    <div [hidden]="!shouldDisplayForm"  class="form">
+      <div class="form-group">
+        <input type="text" formControlName="nome" placeholder="Name" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <input type="text" formControlName="email" placeholder="E-Mail" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <input type="text" formControlName="phone" placeholder="Phone" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <input type="text" formControlName="whatzapp" placeholder="Whatzapp" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <button type="submit" class="btn btn-primary btn-send">Enviar</button>
+      <button type="button" (click)="showForm()" class="btn btn-secondary btn-send">Cancel</button>
+
+    </div>
+
+    <button type="button" (click)="showForm()" class="btn btn-primary btn-new">Inset New Person</button>
+    
+  </form>
+
+<div class=" table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Whatzapp</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let person of persons">
+        <tr>
+          <td>{{person?.id}}</td>
+          <td>{{person?.nome}}</td>
+          <td>{{person?.email}}</td>
+          <td>{{person?.whatzapp}}</td>
+          <td>{{person?.phone}}</td>
+          <td>
+            <button type="button" (click)="showPerson(person.id)">
+              <img alt="Update" src="assets/icons/visibility-24px.svg" />
+            </button>
+            <button type="button" (click)="updatePerson(person.id)">
+              <img alt="Update" src="assets/icons/update-24px.svg" />
+            </button>
+            <button type="button" (click)="deletePerson(person.id)">
+              <img alt="Delete" src="assets/icons/delete_sweep-24px.svg" />
+            </button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

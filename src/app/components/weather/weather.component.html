@@ -1,0 +1,20 @@
+
+<div>
+  <form  [formGroup]="weatherForm" >
+
+    <p>
+      Type the city
+    </p>
+        
+    <div class="input-group mb-3 search-field">
+      <input type="text" class="form-control" formControlName="city" placeholder="Type the city" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchCity()" >Search</button>
+      </div>
+    </div>
+
+    <div class="dl">{{dataTime.description}}</div>
+    <div class="dl">{{dataTime.main}}</div>
+
+  </form>
+</div>

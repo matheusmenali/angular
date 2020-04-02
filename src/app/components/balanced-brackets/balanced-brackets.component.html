@@ -1,23 +1,35 @@
 <div>
-  <form  [formGroup]="balancedForm" >
-
+  <form [formGroup]="balancedForm">
     <p>
       Balanced Bracket
     </p>
 
     <div class="input-group mb-3 expression-field">
-      <input type="text" class="form-control" formControlName="expression" (keydown)="erase($event)" [readonly]="resetControl" placeholder="Type the expression" aria-describedby="button-addon2">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="expression"
+        (keydown)="erase($event)"
+        [readonly]="resetControl"
+        placeholder="Type the expression"
+        aria-describedby="button-addon2"
+      />
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="resetVerification()" >Reset</button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="resetVerification()"
+        >
+          Reset
+        </button>
       </div>
     </div>
 
-    <div class="alert alert-success" *ngIf="stackCount==0" role="alert">
+    <div class="alert alert-success" *ngIf="stackCount == 0" role="alert">
       <img alt="Update" src="assets/icons/thumb_up_alt-black-18dp.svg" />
     </div>
-    <div class="alert alert-danger" *ngIf="stackCount!=0" role="alert">
+    <div class="alert alert-danger" *ngIf="stackCount != 0" role="alert">
       <img alt="Update" src="assets/icons/thumb_down_alt-black-18dp.svg" />
     </div>
-
   </form>
 </div>

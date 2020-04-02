@@ -72,15 +72,14 @@ export class PersonListComponent implements OnInit {
   deletePerson(personId) {
     this.personService.deletePerson(personId).subscribe(
       (result) => {
-        //metodo sem retorno
-      },
-      (error) => {
-        if (error.status == 200) {
+        if (result) {
           const index = this.persons.findIndex(
             (person) => person.id == personId
           );
           this.persons.splice(index, 1);
         }
+      },
+      (error) => {
         console.log(error);
       }
     );

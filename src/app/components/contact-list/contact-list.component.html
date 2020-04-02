@@ -3,12 +3,12 @@
 
   <div [hidden]="!shouldDisplayForm" class="form">
     <div class="form-group">
+      <input formControlName="id" hidden />
       <input
         type="text"
         formControlName="contact_name"
         placeholder="Nickname"
         class="form-control"
-        aria-describedby="emailHelp"
       />
     </div>
 
@@ -66,10 +66,10 @@
         <td>{{ contact?.contact_person_id }}</td>
         <td>{{ contact?.contact_type }}</td>
         <td>
-          <button type="button" (click)="updatePerson(person.id)">
+          <button type="button" (click)="updatePerson(contact.id)">
             <img alt="Update" src="assets/icons/update-24px.svg" />
           </button>
-          <button type="button" (click)="deletePerson(person.id)">
+          <button type="button" (click)="deletePerson(contact.id)">
             <img alt="Delete" src="assets/icons/delete_sweep-24px.svg" />
           </button>
         </td>

@@ -23,7 +23,9 @@
       </div>
     </div>
 
-    <div class="dl">{{ dataTime.description }}</div>
-    <div class="dl">{{ dataTime.main }}</div>
+    <div *ngIf="dataTime.description">
+      <div class="dl">Description - {{ dataTime.description }}</div>
+      <div class="dl">Main - {{ dataTime.main }}</div>
+    </div>
   </form>
 </div>

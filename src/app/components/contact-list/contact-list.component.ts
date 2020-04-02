@@ -20,6 +20,7 @@ export class ContactListComponent implements OnInit {
   public contacts = [];
   public flagUpdateControl = false;
   public persons = [];
+  public selectedValue = {};
   public shouldDisplayForm = false;
 
   constructor(
@@ -44,7 +45,6 @@ export class ContactListComponent implements OnInit {
     });
 
     // carregando contatos
-    // nao terminado
     this.contactService
       .getContacts(parseInt(this.route.snapshot.params.id_person))
       .subscribe((result) => {
@@ -61,6 +61,17 @@ export class ContactListComponent implements OnInit {
     );
     this.contactService.insertContact(this.contactForm.value).subscribe(
       (result) => {
+        // quando é um update
+        if (this.flagUpdateControl) {
+          const index = this.contacts.findIndex(
+            (contact) => contact.id == result.id
+          );
+          this.contacts[index] = result;
+          this.flagUpdateControl = false;
+        } else {
+          //quando é um insert
+          this.contacts.push(result);
+        }
         this.showForm();
         this.contactForm.reset();
       },
@@ -72,5 +83,31 @@ export class ContactListComponent implements OnInit {
 
   showForm() {
     this.shouldDisplayForm = !this.shouldDisplayForm;
+  }
+
+  updatePerson(personId) {
+    const index = this.contacts.findIndex((contact) => contact.id == personId);
+    this.contactForm
+      .get("contact_name")
+      .patchValue(this.contacts[index].contact_name);
+    this.contactForm.get("id").patchValue(this.contacts[index].id);
+    this.showForm();
+    this.flagUpdateControl = true;
+  }
+
+  deletePerson(personId) {
+    this.contactService.deleteContact(personId).subscribe(
+      (result) => {
+        if (result) {
+          const index = this.contacts.findIndex(
+            (contact) => contact.id == personId
+          );
+          this.contacts.splice(index, 1);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
